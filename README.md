@@ -9,7 +9,7 @@ Install angular cli run `npm install -g @angular/cli`
 
 Install dependencies run `npm install`
 
-### Add GitHub toke
+### Add GitHub token
 
 Rename file `/src/environments/environment.dev.ts` to `/src/environments/environment.ts` and replace 'XXX' with your token in file 
 
