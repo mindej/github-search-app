@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="search-container">
+        <form>
+            <span class="search-icon"></span>
+            <input
+                id="gitHub-search"
+                type="search"
+                class="form-control align-middle"
+                [formControl]="searchFormControl"
+                placeholder="GitHub repository search"
+            />
+        </form>
+    </div>
+    <span *ngIf="searching">Searching...</span>
+    <div class="repository-result" *ngIf="searchResults">
+        <div class="item" *ngFor="let item of searchResults">
+            <div class="line">
+                <div class="full-name">
+                    <a routerLink="/details/{{ item.full_name }}">{{ item.full_name }}</a>
+                </div>
+                <div class="description">{{ item.description }}</div>
+                <app-user-has-star class="small star" [repository]="item.full_name" [starred]="starredMap"></app-user-has-star>
+            </div>
+            <div class="line">
+                <div class="small" *ngIf="item.license">{{ item.license.spdx_id }}</div>
+                <div class="small" *ngIf="!item.license">No license</div>
+                <div class="small" *ngIf="item.language">{{ item.language }}</div>
+                <div class="small" *ngIf="item.language == null">No language</div>
+                <div class="small icon-star-full">{{ item.stargazers_count }}</div>
+                <app-contributors class="small" url="{{ item.contributors_url }}"></app-contributors>
+                <div class="small icon-undo2">{{ item.forks_count }}</div>
+                <div class="small icon-warning">{{ item.open_issues_count }}</div>
+            </div>
+        </div>
+    </div>
+</div>

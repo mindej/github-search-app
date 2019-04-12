@@ -1,0 +1,19 @@
+@import '../../icomoon/variables.scss';
+.search-container {
+    width: 400px;
+    margin: 0 auto;
+    .search-icon {
+        height: 0;
+        top: 9px;
+        left: 14px;
+        float: left;
+        position: relative;
+        &:before {
+            @extend %force-font-icon;
+            content: unicode($icon-search);
+        }
+    }
+    input {
+        padding-left: 35px;
+    }
+}

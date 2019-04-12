@@ -1,0 +1,32 @@
+@import 'icomoon/style.scss';
+.container {
+    margin: 100px auto 20px auto;
+    padding: 20px;
+}
+.form-control {
+    border-radius: 6rem;
+    @extend %force-font-icon;
+}
+.repository-result {
+    margin-top: 20px;
+    .item {
+        border: 1px solid black;
+        margin: 10px 0;
+        padding: 5px;
+        .full-name {
+            width: 30%;
+            display: inline-block;
+        }
+        .description {
+            width: 68%;
+            display: inline-block;
+        }
+        .small {
+            width: 10%;
+            display: inline-block;
+            &.star {
+                width: 2%;
+            }
+        }
+    }
+}

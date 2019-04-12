@@ -1,0 +1,45 @@
+<div class="container details">
+    <div class="d-inline-block" *ngIf="repositoryData">
+        <h3>
+            <a href="{{ repositoryData.html_url }}" target="_blank">{{ repositoryData.full_name }}</a>
+        </h3>
+    </div>
+    <div class="d-inline-block float-right">
+        <button class="btn btn-primary" (click)="starProject()">Star/Unstar</button>
+    </div>
+    <div class="repository-result" *ngIf="repositoryData">
+        <div class="repositoryData">
+            <div class="item">
+                <div class="line">
+                    <div class="description">{{ repositoryData.description }}</div>
+                    <div class="small star">
+                        <span [ngClass]="{ 'icon-star-full': starStatus, 'icon-star-empty': !starStatus }"></span>
+                    </div>
+                </div>
+                <div class="line">
+                    <div class="small" *ngIf="repositoryData.license">{{ repositoryData.license.spdx_id }}</div>
+                    <div class="small" *ngIf="!repositoryData.license">No license</div>
+                    <div class="small" *ngIf="repositoryData.language">{{ repositoryData.language }}</div>
+                    <div class="small" *ngIf="repositoryData.language == null">No language</div>
+                    <div class="small icon-star-full">{{ repositoryData.stargazers_count }}</div>
+                    <div class="small icon-clock">{{ effectiveHoursSpent | number: '1.2-2' }}</div>
+                    <app-contributors class="small" url="{{ repositoryData.contributors_url }}"></app-contributors>
+                    <div class="small icon-undo2">{{ repositoryData.forks_count }}</div>
+                    <div class="small icon-warning">{{ repositoryData.open_issues_count }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <canvas
+        *ngIf="weeklyCommitCount"
+        baseChart
+        width="400"
+        [datasets]="lineChartData"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [colors]="lineChartColors"
+        legend="true"
+        chartType="line"
+    >
+    </canvas>
+</div>
