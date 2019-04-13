@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { GitHubApiRepoSearchResult, Item } from '../dto/git-hub-api-repo-search-result'
 import { GitHubLogin } from '../dto/git-hub-login'
-import { Observable } from 'rxjs'
+import { Observable, of } from 'rxjs'
 import { Contributor } from '../dto/contributor'
 import { GitHubStarred } from '../dto/git-hub-starred'
 import { GitHubWeeklyCommitCount } from '../dto/git-hub-weekly-commit-count'
@@ -31,7 +31,7 @@ export class GitHubApiService {
         if (url.startsWith('https://api.github.com/')) {
             return this.httpClient.get<Contributor[]>(url, this._getAuthOptions())
         }
-        return null
+        return of(null)
     }
 
     /**
