@@ -27,7 +27,7 @@ export interface License {
     node_id: string
 }
 
-export interface Item {
+export class Item {
     id: number
     node_id: string
     name: string
@@ -104,7 +104,7 @@ export interface Item {
     score: number
 }
 
-export interface GitHubApiRepoSearchResult {
+export class GitHubApiRepoSearchResult {
     total_count: number
     incomplete_results: boolean
     items: Item[]
