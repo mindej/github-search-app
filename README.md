@@ -1,4 +1,3 @@
-
 # Github Search App
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
@@ -11,13 +10,21 @@ Install dependencies run `npm install`
 
 ### Add GitHub token
 
-Rename file `/src/environments/environment.dev.ts` to `/src/environments/environment.ts` and replace 'XXX' with your token in file 
+Rename file `/src/environments/environment.dev.ts` to `/src/environments/environment.ts` and replace 'XXX' with your token in file
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## IDE 
+## Production
+
+### Compilation
+
+```
+ng build --prod
+```
+
+## IDE
 
 Project is developed using [Visual Studio Code](https://code.visualstudio.com/). Code is formated automatically using [Prettier](https://prettier.io/) on file save and on commit.
 
