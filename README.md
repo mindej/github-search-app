@@ -18,10 +18,18 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Production
 
+Please update `/src/environments/environment.prod.ts` with valid values.
+
 ### Compilation
 
 ```
 ng build --prod
+```
+
+### Run
+
+```
+docker-compose up
 ```
 
 ## IDE
